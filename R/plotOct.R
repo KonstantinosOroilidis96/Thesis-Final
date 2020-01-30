@@ -11,7 +11,7 @@ plotOct<- function(toplot) {
   
   # Set the filename and colors
   cols <- c("green", "brown", "light blue", "yellow", "orange")
-  png(filename='./output/October_Prediction', width=600, height=600)
+  png(filename='./output/October_Prediction.png', width=600, height=600)
   
   # Plot the data
   plot(toplot, col=cols, legend=FALSE, axes=F)

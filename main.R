@@ -85,7 +85,7 @@ TPValueTableNov$Code <- factor(TPValueTableNov$Code, levels = c(1:5)) #November
 ###############################################################
 
 # Download the CI Files
-downloaddataCI("https://www.dropbox.com/s/qzozawspo6b6dt0/CompleteImages.zip?dl=1")
+downloaddataCI("https://www.dropbox.com/s/4m8fb6tmxf8tzht/CI.zip?dl=1")
 
 # List the CI files
 CI <- list.files(path='data/CI', pattern = glob2rx('*.tif'), full.names=TRUE)
@@ -119,8 +119,8 @@ predictedLandcoverOct <- predict(Ortho181019prj, modelRFOct, na.rm=TRUE, filenam
 predictedLandcoverNov <- predict(Ortho201119prj, modelRFNov, na.rm=TRUE, filename='./output/Ortho201119_Prediction.tif', overwrite=TRUE)
 
 # [Run these instead of the above plotting if there is enough processing power]
-# predictedLandcoverOctCI <- predict(CI181019, modelRFOct, na.rm=TRUE, filename='./output/CI181019_Prediction.tif', overwrite=TRUE)
-# predictedLandcoverNovCI <- predict(CI201119, modelRFNov, na.rm=TRUE, filename='./output/CI201119_Prediction.tif', overwrite=TRUE)
+predictedLandcoverOctCI <- predict(CI181019prj, modelRFOct, na.rm=TRUE, filename='./output/CI181019_Prediction.tif', overwrite=TRUE)
+predictedLandcoverNovCI <- predict(CI201119prj, modelRFNov, na.rm=TRUE, filename='./output/CI201119_Prediction.tif', overwrite=TRUE)
 
 ###############################################################
 ###################### PLOTTING OUTCOMES ######################
@@ -137,9 +137,9 @@ barplotNov(predictedLandcoverNov, classesNov) #November
 
 # [Run these instead of the above plotting if there is enough processing power]
 # Plot the predicted landcover for CI
-# plotOct(predictedLandcoverOctCI) #October
-# plotNov(predictedLandcoverNovCI) #November
+plotOct(predictedLandcoverOctCI) #October
+plotNov(predictedLandcoverNovCI) #November
 
 # Present statistics data for CI
-# barplotOct(predictedLandcoverOctCI, classesOct) #October
-# barplotNov(predictedLandcoverNovCI, classesNov) #November
+barplotOct(predictedLandcoverOctCI, classesOct) #October
+barplotNov(predictedLandcoverNovCI, classesNov) #November
